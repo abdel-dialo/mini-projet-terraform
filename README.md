@@ -7,7 +7,7 @@ Promotion: BootCamp DevOps 17
 
 # Provisionnement d'une instance AWS EC2 avec Terraform
 
-  ![alt text](images/image.png)
+  ![alt text](images/image11.png)
 
  Le but de ce projet est de provionnée une instance ec2 Ubuntu Bionic auquel on va rattacher un groupe de sécurité, un volume EBS et une adresse IP public pour ensuite y installer un serveur _nginx_
 
@@ -21,11 +21,10 @@ Promotion: BootCamp DevOps 17
 # Structure des modules
   Pour provionner l'environnement j'ai écris 4 modules terraform et un module racine(_main_) dans le dossier _app_
 
+   ![alt text](images/image.png)
+
    *1*-Module ec2 
-   - Structure de notre module 
-
-     ![alt text](images/image-1.png)
-
+    
   - Dans le fichier main du module j'ai commencé par créer la _Datasource_  _aws_ami pour 
         récupérer dynamiquement la dernière version de l'AMI Ubuntu bionic
   - Ensuite je créer l’instance ec2 auquel je lie le groupe de sécurité (module sg).
