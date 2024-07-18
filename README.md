@@ -1,25 +1,24 @@
-Prénom: Abdoul Gadirou
+ Prénom: **Abdoul Gadirou**
 
-Nom: DIALLO
+Nom:  **DIALLO**
 
-Promotion: BootCamp DevOps 17
+Promotion: **BootCamp DevOps 17**
 
 
 # Provisionnement d'une instance AWS EC2 avec Terraform
 
   ![alt text](images/image11.png)
 
- Le but de ce projet est de provionnée une instance ec2 Ubuntu Bionic auquel on va rattacher un groupe de sécurité, un volume EBS et une adresse IP public pour ensuite y installer un serveur _nginx_
+ Le but de ce projet est de provisionnée une instance ec2 Ubuntu Bionic à laquelle on va rattacher un groupe de sécurité, un volume EBS et une adresse IP public pour ensuite y installer un serveur _nginx_
 
  
-**Livrable**
+# Livrable
 
 
-- Modules terraform (dossier app et modules)
-
+- Modules terraform (dossier _app_ et _modules_)
 
 # Structure des modules
-  Pour provionner l'environnement j'ai écris 4 modules terraform et un module racine(_main_) dans le dossier _app_
+  Pour provisionner l'environnement j'ai écrit 4 modules terraform et un module racine(_main_) dans le dossier _app_
 
    ![alt text](images/image.png)
 
@@ -27,7 +26,7 @@ Promotion: BootCamp DevOps 17
     
   - Dans le fichier main du module j'ai commencé par créer la _Datasource_  _aws_ami pour 
         récupérer dynamiquement la dernière version de l'AMI Ubuntu bionic
-  - Ensuite je créer l’instance ec2 auquel je lie le groupe de sécurité (module sg).
+  - Ensuite j'ai crée l’instance ec2 à laquelle je lie le groupe de sécurité (module sg).
   - Ensuite j'ai utilisé le provisionneur _remote-exec_ pour installer _nginx_ sur la 
         machine qui sera provisionnée
         
@@ -36,17 +35,17 @@ Promotion: BootCamp DevOps 17
     - *instancetype*: type de l'instance ec2
     - *ec2_common_tag* : tag de l'instance
     - *security_groups* : nom du groupe de sécurité qui sera lié à l'instance(voir module *sg*)
-    - *ec2_instance_id*: variable de sortie permettant d'associer l'ec2 aux ebs et eip
+    - *ec2_instance_id*: variable de sortie permettant d'associer l'ec2 au ebs et au eip
    
   *2*-Module *ebs*
 
-  Ce module permet de créer un volume ebs qui sera attacher à l'ec2
+  Ce module permet de créer un volume _ebs_ qui sera attacher à l'ec2
 
   - Variables déclarées et qui pourront être surchargées:
-    - *availability_zone* zone de disponibilité du volume ebs qui doit être la même que la 
+    - *availability_zone* zone de disponibilité du volume _ebs_ qui doit être la même que la 
           zone de disponibilité de l'ec2
-    - *size*: taille du volume ebs 
-    - *ebs_tag*: tag du volume ebs
+    - *size*: taille du volume _ebs_ 
+    - *ebs_tag*: tag du volume _ebs_
 
   *3*- Module *eip*
 
@@ -102,7 +101,7 @@ Promotion: BootCamp DevOps 17
   - Aller dans le repertoire _app_
     
     ```
-    cd app
+    cd mini-projet-terraform/app
     
     ```
   
@@ -134,7 +133,7 @@ Promotion: BootCamp DevOps 17
   - Détruire les ressources en tapant la commande suivante:
       
       ```
-      terraform init
+      terraform destroy
       ```
       ![alt text](images/image-9.png)
 
